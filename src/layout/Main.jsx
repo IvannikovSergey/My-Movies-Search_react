@@ -1,5 +1,7 @@
 import { Movies } from "../components/Movies";
 import React from "react";
+import { Preloader } from "../components/Preloader";
+import { Search } from "../components/Search";
 
 const URL = "http://www.omdbapi.com/?apikey=20fbfe28&";
 const QUERY = "s=Avengers";
@@ -23,7 +25,8 @@ class Main extends React.Component {
     const { movies } = this.state;
     return (
       <main className="container content">
-        <Movies movies={movies} />
+        <Search />
+        {movies.length ? <Movies movies={movies} /> : <Preloader />}
       </main>
     );
   }
