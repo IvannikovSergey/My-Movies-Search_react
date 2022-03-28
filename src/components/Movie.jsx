@@ -17,8 +17,20 @@ function Movie(props) {
       <div className="card-content">
         <span className="card-title activator">{title}</span>
         <p>
-          {year}
-          <span className="right">{type}</span>
+          <span className="right">
+            {year}
+            {type}
+          </span>
+          <a
+            href="!#"
+            className="right"
+            onClick={(event) => {
+              event.preventDefault();
+              props.readMoreHandler(id);
+            }}
+          >
+            Read more
+          </a>
         </p>
       </div>
     </div>
