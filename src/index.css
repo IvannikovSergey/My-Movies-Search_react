@@ -23,3 +23,14 @@ code {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
 }
+ .btn-pos {
+   position: absolute;
+   top: 0;
+   right: 0.5rem;
+ }
+ .radio {
+  padding: 0 100px 0 0;
+ }
+ label:not(:last-child) {
+   margin-right: 1rem;
+ }

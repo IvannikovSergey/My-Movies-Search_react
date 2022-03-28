@@ -5,9 +5,9 @@ function Movies(props) {
   const { movies } = props;
   return (
     <div className="movies">
-      {movies.map((movie) => (
-        <Movie key={movie.Id} {...movie} />
-      ))}
+      {movies.length ? (movies.map((movie) =>
+        <Movie key={movie.Id} {...movie} />)) : (<p>Nothing</p>)}
+
     </div>
   );
 }
