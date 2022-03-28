@@ -5,7 +5,7 @@ import { Search } from '../components/Search';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&s=`;
+const URL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=`;
 const QUERY = 'Avengers';
 
 class Main extends React.Component {
