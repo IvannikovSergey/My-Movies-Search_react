@@ -3,9 +3,10 @@ import React from 'react';
 import { Preloader } from '../components/Preloader';
 import { Search } from '../components/Search';
 
-const URL = 'http://www.omdbapi.com/?apikey=20fbfe28&s=';
+const API_KEY = process.env.REACT_APP_API_KEY;
+
+const URL = `http://www.omdbapi.com/?apikey=${API_KEY}&s=`;
 const QUERY = 'Avengers';
-const TYPE = '';
 
 class Main extends React.Component {
     state = {
@@ -27,6 +28,7 @@ class Main extends React.Component {
     }
 
     searchMovies = (search, type = 'all') => {
+        this.setState({ loading: true });
         let url = `${URL}${search}`;
         if (type !== 'all') {
             url = `${url}&type=${type}`;
@@ -39,16 +41,19 @@ class Main extends React.Component {
                 return res.json();
             })
             .then((data) => {
-                this.setState({ movies: data.Search });
+                this.setState({
+                    movies: data.Search ? data.Search : [],
+                    loading: false,
+                });
             });
     };
 
     render() {
-        const { movies } = this.state;
+        const { movies, loading } = this.state;
         return (
             <main className='container content'>
                 <Search searchMovies={this.searchMovies} />
-                {movies.length ? <Movies movies={movies} /> : <Preloader />}
+                {loading ? <Preloader /> : <Movies movies={movies} />}
             </main>
         );
     }
