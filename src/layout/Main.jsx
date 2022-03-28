@@ -15,7 +15,7 @@ class Main extends React.Component {
     };
 
     componentDidMount() {
-        fetch(`${URL}${QUERY}`)
+        fetch(URL)
             .then((res) => {
                 return res.json();
             })
