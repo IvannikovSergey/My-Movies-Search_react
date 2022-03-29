@@ -11,12 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+#root {
+    /* flex-контейнер для <header>, <main> и <footer> */
+    display: flex;
+    /* flex-элементы <header>, <main> и <footer> выстаиваются по вертикали */
+    flex-direction: column;
+    /* вся высота viewport браузера */
+    min-height: 100vh;
+}
 .nav-wrapper {
   padding: 0 1rem;
 }
 .content {
-  min-height: 100vh;
-  padding: 0.5rem;
+  /* min-height: 100vh;
+  padding: 0.5rem; */
+  padding-top: 20px;
+    /*
+    может как увеличиваться, так и уменьшаться, чтобы вместе с
+    <header> и <footer> занять всю высоту viewport браузера
+    */
+    flex: 1 1 auto;
 }
 .movies {
   display: grid;
